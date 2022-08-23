@@ -1,0 +1,41 @@
+:root {
+  --main-color: #5B027D;
+  --main2-color: #FEFFFF;
+  --text-color: #303437;
+  --text2-color: #757575;
+  --text3-color: #B9B9B9;
+  --sub-color: #F5F5F5;
+}
+
+.HeaderContainer {
+  width: 100%;
+  height: 10vh;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.HeaderBox {
+  width: fit-content;
+  line-height: 10vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.HeaderBox img {
+  scale: 1.2;
+  padding: 0 30px;
+}
+
+.HeaderBox span {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.DropDownBox {
+  height: fit-content;
+  top: 20px;
+  right: 30px;
+  position: fixed;
+}
