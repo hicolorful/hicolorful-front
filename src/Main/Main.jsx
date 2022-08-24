@@ -113,10 +113,10 @@ function Main() {
             </div>
             <div className="CategoryValue">
               <p className="MainText">적정가</p>
-              {/* {productValue && productValue.map((el) => (
-                  <p>{el.reasonablePrice}</p>
-                ))} */}
-              {/* <p value={productValue}></p> */}
+              <p className="ProductType2">
+                {productValue.reasonablePrice}
+                <span>원</span>
+              </p>
             </div>
           </div>
           <div className="LeftTwoContainer">
@@ -134,12 +134,18 @@ function Main() {
                 </div>
                 <div className="CompareArray">
                   {compareValue &&
-                    compareValue.map((el) => (
-                      <p>
-                        {el.price}
-                        <span>원</span>
-                      </p>
-                    ))}
+                    compareValue
+                      .map((el) => (
+                        <p>
+                          {el.price}
+                          <span>원</span>
+                        </p>
+                      ))
+                      .sort(function (a, b) {
+                        if (a > b) return 1;
+                        if (a === b) return 0;
+                        if (a < b) return -1;
+                      })}
                 </div>
                 <div className="CompareArray">
                   {compareValue && compareValue.map((el) => <p>{el.gap}</p>)}
@@ -165,12 +171,16 @@ function Main() {
           <div className="RightTwoContainer">
             <div className="Preference">
               <p className="MainText">가격별 선호도</p>
-              <div className="CompareArrayWrap">
-                <div>
-                  {preference && preference.map((el) => <p>{el.unitPrice}</p>)}
+              <div className="DataArrayWrap2">
+                <div className="CompareArray2">
+                  {preference &&
+                    preference.map((el) => <p>{el.unitPrice}원</p>)}
                 </div>
-                <div>
-                  {preference && preference.map((el) => <p>{el.preference}</p>)}
+                <div className="CompareArray2">
+                  {preference &&
+                    preference.map((el) => (
+                      <p>{Math.ceil(el.preference * 100)}%</p>
+                    ))}
                 </div>
               </div>
             </div>
@@ -179,14 +189,16 @@ function Main() {
               <div className="DataArrayWrap">
                 <p className="DataArray">최저가순</p>
                 <div className="Line"></div>
-                <div>
-                  {character && character.map((el) => <p>{el.unitPrice}</p>)}
-                </div>
-                <div>
-                  {character &&
-                    character.map((el) => (
-                      <p>{el.characteristicResponseDtos.productName}</p>
-                    ))}
+                <div className="CompareArrayWrap">
+                  <div className="CompareArray2">
+                    {character && character.map((el) => <p>{el.unitPrice}원</p>)}
+                  </div>
+                  <div className="CompareArray2">
+                    {character &&
+                      character.map((el) => (
+                        <p>{el.characteristicResponseDtos.productName}</p>
+                      ))}
+                  </div>
                 </div>
               </div>
             </div>

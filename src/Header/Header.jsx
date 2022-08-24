@@ -7,8 +7,6 @@ import kurlylogo from '../assets/img/kurly-logo.png';
 function Header() {
   const categoryName = [
     { label: '김치', value: 1 },
-    { label: '사과', value: 2 },
-    { label: '계란', value: 3 },
   ];
 
   return (
