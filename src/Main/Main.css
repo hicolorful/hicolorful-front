@@ -41,8 +41,14 @@
   padding: 30px 60px;
 }
 
-.MainContainer .DataArrayWrap {
+.MainContainer .DataArrayWrap, .DataArrayWrap2 {
   padding: 30px 35px 0 35px;
+}
+
+.MainContainer .DataArrayWrap2 {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
 
 .CompareArrayWrap {
@@ -94,10 +100,14 @@
   height: 490px;
 }
 
-.CompareArray {
+.CompareArray, .CompareArray2 {
   display: flex;
   flex-direction: column;
   gap: 35px;
+}
+
+.CompareArray2 {
+  gap: 20px;
 }
 
 .CompareArray p {
@@ -138,10 +148,22 @@
   height: 365px;
 }
 
-.ProductType {
+.ProductTypeWrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.ProductType, .ProductType2 {
   font-size: 28px;
   font-weight: 600;
   text-align: center;
-  color: var(--text-color);
   line-height: 80px;
+}
+
+.ProductType {
+  color: var(--text-color);
+}
+
+.ProductType2 {
+  color: var(--main-color);
 }
