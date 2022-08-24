@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import './Main.css';
 import Select from 'react-select';
+import Chart from './Chart';
 
 function Main() {
   const productName = [
@@ -20,7 +21,7 @@ function Main() {
 
   // category 정보 get
   const getProductType = async () => {
-    await axios.get(`http://13.209.64.222:8080/category`).then((res) => {
+    await axios.get(`http://13.125.166.49:8080/category`).then((res) => {
       const productData = res.data.data;
       setProductType(productData);
     });
@@ -32,7 +33,7 @@ function Main() {
   // category 적정가 get
   const getProductValue = async () => {
     await axios
-      .get(`http://13.209.64.222:8080/reasonable-price?category=김치`)
+      .get(`http://13.125.166.49:8080/reasonable-price?category=김치`)
       .then((res) => {
         const reasonablePrice = res.data;
         console.log(res.data); // reasonablePrice
@@ -45,7 +46,7 @@ function Main() {
 
   // 가격대비 get
   const getCompareValue = async () => {
-    await axios.get(`http://13.209.64.222:8080/compare/2`).then((res) => {
+    await axios.get(`http://13.125.166.49:8080/compare/2`).then((res) => {
       const comparePrice = res.data;
       console.log(res.data);
       setCompareValue(comparePrice);
@@ -58,7 +59,7 @@ function Main() {
   // 원재료 가격 변동 get
   const getFarmPrice = async () => {
     await axios
-      .get(`http://13.209.64.222:8080/farm-price?category=김치`)
+      .get(`http://13.125.166.49:8080/farm-price?category=김치`)
       .then((res) => {
         const farmPrice = res.data;
         console.log(res.data);
@@ -72,7 +73,7 @@ function Main() {
   // 가격별 선호도 get
   const getPreference = async () => {
     await axios
-      .get(`http://13.209.64.222:8080/preference?category=김치`)
+      .get(`http://13.125.166.49:8080/preference?category=김치`)
       .then((res) => {
         const pricePreference = res.data;
         setPreference(pricePreference);
@@ -85,7 +86,7 @@ function Main() {
   // 상품 특성 get
   const getCharacter = async () => {
     await axios
-      .get(`http://13.209.64.222:8080/character?category=김치`)
+      .get(`http://13.125.166.49:8080/character?category=김치`)
       .then((res) => {
         const categoryCharacter = res.data;
         setCharacter(categoryCharacter);
@@ -98,6 +99,7 @@ function Main() {
   return (
     <div className="Container">
       <Header></Header>
+      {/* <Chart /> */}
       <div className="MainContainer">
         <div className="LeftContainer">
           <div className="LeftOneContainer">
